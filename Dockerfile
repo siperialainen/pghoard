@@ -19,7 +19,7 @@ RUN apk add --no-cache \
         g++ && \
     python3 -m ensurepip && \
     pip3 install --upgrade pip setuptools && \
-    pip3 install boto azure google-api-python-client cryptography https://github.com/ohmu/pghoard/archive/master.zip && \
+    pip3 install boto azure google-api-python-client cryptography pghoard && \
     rm -r /root/.cache && \
     apk del .build-deps
 
