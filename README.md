@@ -1,1 +1,1 @@
-# pghoard
+# Pghoard with pg_* utilities compatible with PostgreSQL 11
