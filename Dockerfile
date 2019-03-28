@@ -23,4 +23,10 @@ RUN apk add --no-cache \
     rm -r /root/.cache && \
     apk del .build-deps
 
+# Overcome PostgreSQL version check to be able to make database dumps from the other container.
+RUN mkdir -p /pgdata && \
+  echo "11" > /pgdata/PG_VERSION && \
+  chgrp -R 0 /pgdata && \
+  chmod -R g=u /pgdata
+
 CMD ["/usr/bin/pghoard", "--short-log"]
