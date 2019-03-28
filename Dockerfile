@@ -29,4 +29,8 @@ RUN mkdir -p /pgdata && \
   chgrp -R 0 /pgdata && \
   chmod -R g=u /pgdata
 
+RUN mkdir -p /var/lib/pghoard && \
+  chgrp -R 0 /var/lib/pghoard && \
+  chmod -R g=u /var/lib/pghoard
+
 CMD ["/usr/bin/pghoard", "--short-log"]
