@@ -8,7 +8,8 @@ RUN apk add --no-cache \
         python3 \
         snappy \
         libffi \
-        postgresql && \
+        postgresql \
+        git && \
     apk add --no-cache --virtual .build-deps \
         musl-dev \
         python3-dev \
@@ -19,9 +20,13 @@ RUN apk add --no-cache \
         g++ && \
     python3 -m ensurepip && \
     pip3 install --upgrade pip setuptools && \
-    pip3 install boto azure google-api-python-client cryptography pghoard && \
+    pip3 install boto azure google-api-python-client cryptography python-snappy psycopg2 && \
     rm -r /root/.cache && \
-    apk del .build-deps
+    apk del .build-deps && \
+    git clone https://github.com/aiven/pghoard.git && \
+    cd pghoard && \
+    python3 setup.py install
+
 
 # Overcome PostgreSQL version check to be able to make database dumps from the other container.
 RUN mkdir -p /pgdata && \
