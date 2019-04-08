@@ -20,7 +20,7 @@ RUN apk add --no-cache \
         g++ && \
     python3 -m ensurepip && \
     pip3 install --upgrade pip setuptools && \
-    pip3 install boto azure google-api-python-client cryptography python-snappy psycopg2 && \
+    pip3 install boto azure google-api-python-client cryptography python-snappy psycopg2 botocore && \
     rm -r /root/.cache && \
     apk del .build-deps && \
     git clone https://github.com/aiven/pghoard.git && \
