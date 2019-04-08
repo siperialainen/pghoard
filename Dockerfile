@@ -27,7 +27,6 @@ RUN apk add --no-cache \
     cd pghoard && \
     python3 setup.py install
 
-
 # Overcome PostgreSQL version check to be able to make database dumps from the other container.
 RUN mkdir -p /pgdata && \
   echo "11" > /pgdata/PG_VERSION && \
